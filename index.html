@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="News Aggregator - Get the latest news on gaming, technology, and motorsports.">
+  <title>DJ`s News Aggregator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Top Buttons -->
+    <div class="top-buttons">
+      <h1> DJ`s News Aggregator </h1>  
+
+      <!-- <button onclick="">Sort</button>  -->
+      <button onclick="toggleDarkMode()">Enable Dark Mode</button>
+      <button onclick="window.location.href='https://www.streamlabs.com/khaos_Demon'">Donate</button>
+    </div>
+    <!-- Dropdown for Categories -->
+    <div class="dropdown">
+      <button class="dropbtn">News Categories</button>
+      <div class="dropdown-content">
+        <div class="dropdown-item">
+          <span>Technology</span>
+          <div class="dropdown-submenu">
+            <a href="#" onclick="updateCategory('networking')">Networking</a>
+            <a href="#" onclick="updateCategory('computers')">Computers</a>
+            <a href="#" onclick="updateCategory('hacking')">Cyber Security</a>
+            <a href="#" onclick="updateCategory('virtual-reality')">VR</a>
+          </div>
+        </div>
+        <div class="dropdown-item">
+          <span>Gaming</span>
+          <div class="dropdown-submenu">
+            <a href="#" onclick="updateCategory('video-games')">Video Games</a>
+            <a href="#" onclick="updateCategory('computer-games')">PC Gaming</a>
+            <a href="#" onclick="updateCategory('esports')">Esports</a>
+          </div>
+        </div>
+        <div class="dropdown-item">
+          <span>Motorsports</span>
+          <div class="dropdown-submenu">
+            <a href="#" onclick="updateCategory('formula-1')">Formula 1</a>
+            <a href="#" onclick="updateCategory('indy-car')">Indy Car</a>
+            <a href="#" onclick="updateCategory('imsa')">IMSA</a>
+            <a href="#" onclick="updateCategory('wec')">WEC</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Main Content -->
+
+    <h2> Whats the news ?  </h2>
+       <h3> Here is the all latest going on related technology and a bit more!</h3>    
+    <main>
+      <div id="news-container" class="grid"></div>
+    </main>
+    <footer>
+      <p>Powered by NewsAPI</p>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
