@@ -4,34 +4,34 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: 'Arial', sans-serif;
     background-color: #af1d1d;
     color: #f3eeee;
     transition: background-color 0.3s, color 0.3s;
 }
-
 body.dark-mode {
     background-color: #121212;
     color: #fff;
 }
-
 .container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
-
 /* Top Buttons */
 .top-buttons {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 1rem;
     padding: 1rem;
     background-color: #1a73e8;
 }
-
+.top-buttons h1 {
+    color: white;
+    margin-right: auto;
+}
 .top-buttons button {
     background-color: #ffffff;
     color: #21ac54;
@@ -41,11 +41,9 @@ body.dark-mode {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
 .top-buttons button:hover {
     background-color: #e0e0e0;
 }
-
 /* Dropdown */
 .dropdown {
     position: relative;
@@ -53,7 +51,6 @@ body.dark-mode {
     margin: 1rem;
     align-self: center;
 }
-
 .dropbtn {
     background-color: #1a73e8;
     color: white;
@@ -62,7 +59,6 @@ body.dark-mode {
     border-radius: 4px;
     cursor: pointer;
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -72,21 +68,17 @@ body.dark-mode {
     padding: 0.5rem 0;
     z-index: 1;
 }
-
 .dropdown-item {
     position: relative;
 }
-
 .dropdown-item span {
     display: block;
     padding: 0.5rem 1rem;
     cursor: pointer;
 }
-
 .dropdown-item:hover .dropdown-submenu {
     display: block;
 }
-
 .dropdown-submenu {
     display: none;
     position: absolute;
@@ -97,23 +89,19 @@ body.dark-mode {
     box-shadow: 0px 8px 16px rgba(244, 243, 243, 0.2);
     padding: 0.5rem 0;
 }
-
 .dropdown-submenu a {
     padding: 0.5rem 1rem;
     display: block;
     color: #ffffff;
     text-decoration: none;
 }
-
 .dropdown-submenu a:hover {
     background-color: #ba1b1b;
 }
-
 .dropbtn:hover + .dropdown-content,
 .dropdown-content:hover {
     display: block;
 }
-
 /* News Grid */
 .grid {
     display: grid;
@@ -121,7 +109,6 @@ body.dark-mode {
     gap: 1.5rem;
     padding: 1.5rem;
 }
-
 /* Cards */
 .news-card {
     background: #0a5a75;
@@ -131,35 +118,29 @@ body.dark-mode {
     flex-direction: column;
     height: 100%;
 }
-
 .news-card img {
     width: 100%;
     height: 150px;
     object-fit: cover;
 }
-
 .news-card h2 {
     font-size: 1.2rem;
     margin: 0.5rem 1rem;
     color: #fff;
 }
-
 .news-card p {
     flex-grow: 1;
     margin: 0.5rem 1rem;
     color: #ddd;
 }
-
 .news-card a {
     margin: 0.5rem 1rem;
     color: #1a73e8;
     text-decoration: none;
 }
-
 .news-card a:hover {
     text-decoration: underline;
 }
-
 .news-card button {
     margin: 0.5rem 1rem 1rem;
     padding: 0.5rem;
@@ -169,11 +150,9 @@ body.dark-mode {
     border-radius: 4px;
     cursor: pointer;
 }
-
 .news-card button:hover {
     background-color: #1558b0;
 }
-
 /* Footer */
 footer {
     text-align: center;
