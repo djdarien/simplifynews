@@ -1,15 +1,17 @@
-// Your API Key (Replace with your GNews API key)
+// Your GNews API Key (Replace with your actual GNews API key)
 const API_KEY = '0345e3b7fa12b27f6a7b5290c23bd202';
 let currentQuery = 'technology';
 
+// Function to update the current category and fetch news
 function updateCategory(query) {
   currentQuery = query;
   fetchNews();
 }
 
+// Function to fetch news articles from GNews API
 async function fetchNews() {
   const newsContainer = document.getElementById('news-container');
-  newsContainer.innerHTML = 'Loading...';
+  newsContainer.innerHTML = '<p>Loading...</p>';
 
   try {
     const response = await fetch(
@@ -29,31 +31,36 @@ async function fetchNews() {
         const newsCard = document.createElement('div');
         newsCard.className = 'news-card';
 
+        // Article Image
         const img = document.createElement('img');
         img.src = article.image || 'https://via.placeholder.com/300';
         img.alt = article.title;
+        newsCard.appendChild(img);
 
+        // Article Title
         const title = document.createElement('h2');
         title.textContent = article.title;
+        newsCard.appendChild(title);
 
+        // Article Description
         const description = document.createElement('p');
         description.textContent = article.description || 'No description available.';
+        newsCard.appendChild(description);
 
+        // Read More Link
         const readMore = document.createElement('a');
         readMore.href = article.url || '#';
         readMore.target = '_blank';
         readMore.textContent = 'Read More';
+        newsCard.appendChild(readMore);
 
+        // Share Button
         const shareBtn = document.createElement('button');
         shareBtn.textContent = 'Share';
         shareBtn.onclick = () => shareArticle(article.title, article.url);
-
-        newsCard.appendChild(img);
-        newsCard.appendChild(title);
-        newsCard.appendChild(description);
-        newsCard.appendChild(readMore);
         newsCard.appendChild(shareBtn);
 
+        // Append the news card to the container
         newsContainer.appendChild(newsCard);
       });
     } else {
@@ -65,6 +72,7 @@ async function fetchNews() {
   }
 }
 
+// Function to share an article using the Web Share API
 function shareArticle(title, url) {
   if (navigator.share) {
     navigator
@@ -78,8 +86,10 @@ function shareArticle(title, url) {
   }
 }
 
+// Function to toggle dark mode
 function toggleDarkMode() {
   document.body.classList.toggle('dark-mode');
 }
 
+// Initialize by fetching the default category news
 window.onload = fetchNews;
