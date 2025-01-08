@@ -38,8 +38,10 @@ body.dark-mode {
     color: white;
     margin-bottom: 20px;
     text-align: center;
+    font-size: 24px;
 }
 
+/* Dropdown Button */
 .dropbtn {
     background-color: #1a73e8;
     color: white;
@@ -56,14 +58,16 @@ body.dark-mode {
     background-color: #1558b0;
 }
 
+/* Dropdown Content */
 .dropdown-content {
-    display: none;
+    display: block; /* Always show dropdown-content */
     background-color: rgba(255, 255, 255, 0.1);
     padding-left: 10px;
 }
 
+/* Dropdown Items */
 .dropdown-item {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .dropdown-item span {
@@ -71,27 +75,30 @@ body.dark-mode {
     color: white;
     padding: 8px 0;
     cursor: pointer;
+    font-weight: bold;
 }
 
+.dropdown-submenu {
+    display: none;
+    margin-left: 15px;
+}
+
+.dropdown-item:hover .dropdown-submenu {
+    display: block;
+}
+
+/* Submenu Links */
 .dropdown-submenu a {
     color: #f3eeee;
     padding: 8px 0;
     text-decoration: none;
     display: block;
+    font-size: 14px;
 }
 
 .dropdown-submenu a:hover {
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 4px;
-}
-
-/* Show dropdown on hover */
-.dropdown-item:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown-content .dropdown-submenu {
-    margin-left: 15px;
 }
 
 /* Additional Controls */
@@ -126,11 +133,13 @@ body.dark-mode {
 .main-content h2 {
     margin-bottom: 10px;
     color: #1a73e8;
+    font-size: 28px;
 }
 
 .main-content h3 {
     margin-bottom: 20px;
     color: #333;
+    font-size: 18px;
 }
 
 /* News Grid */
