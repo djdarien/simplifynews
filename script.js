@@ -31,11 +31,16 @@ async function fetchNews() {
         const newsCard = document.createElement('div');
         newsCard.className = 'news-card';
 
-        // Article Image
+        // Article Image with clickable link
+        const imageLink = document.createElement('a');
+        imageLink.href = article.url || '#';
+        imageLink.target = '_blank';
+        imageLink.className = 'image-link';
         const img = document.createElement('img');
         img.src = article.image || 'https://via.placeholder.com/300';
         img.alt = article.title;
-        newsCard.appendChild(img);
+        imageLink.appendChild(img);
+        newsCard.appendChild(imageLink);
 
         // Article Title
         const title = document.createElement('h2');
@@ -51,6 +56,7 @@ async function fetchNews() {
         const readMore = document.createElement('a');
         readMore.href = article.url || '#';
         readMore.target = '_blank';
+        readMore.className = 'read-more';
         readMore.textContent = 'Read More';
         newsCard.appendChild(readMore);
 
@@ -89,6 +95,12 @@ function shareArticle(title, url) {
 // Function to toggle dark mode
 function toggleDarkMode() {
   document.body.classList.toggle('dark-mode');
+}
+
+// Function to toggle side navigation
+function toggleSidenav() {
+  const sidenav = document.getElementById('sidenav');
+  sidenav.classList.toggle('open');
 }
 
 // Initialize by fetching the default category news
