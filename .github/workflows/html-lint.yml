@@ -1,0 +1,33 @@
+name: HTML Syntax Check
+
+# Trigger on pull requests and pushes to the main branch (adjust branch name as needed)
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  lint-html:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository so we can access the HTML files
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Set up Node.js so we can run npm commands
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      # Install HTMLHint globally
+      - name: Install HTMLHint
+        run: npm install -g htmlhint
+
+      # Run HTMLHint on all HTML files in the repository
+      - name: Lint HTML Files
+        run: htmlhint "**/*.html"
