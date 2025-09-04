@@ -1,0 +1,153 @@
+<!-- guides.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="EV Guides and Resources - Simplify EV News" />
+  <title>EV Guides - Simplify EV News</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .guide-section {
+      margin-bottom: 3rem;
+    }
+    .guide-section h3 {
+      margin-top: 1rem;
+    }
+    .guide-card {
+      display: flex;
+      align-items: center;
+      margin: 1.5rem 0;
+      background: #f9f9f9;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .guide-card img {
+      width: 250px;
+      height: auto;
+      object-fit: cover;
+    }
+    .guide-card-content {
+      padding: 1rem;
+    }
+    .guide-card-content h4 {
+      margin: 0 0 .5rem;
+    }
+    .guide-card-content a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    .guide-card-content a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body class="no-sidenav">
+  <!-- Top Navbar -->
+  <nav class="navbar">
+    <div class="logo"><a href="index.html">Simplify EV News</a></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="guides.html" class="active">EV Guides</a>
+      <a href="chat.html">Ask ChatGPT</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <main class="main-content">
+      <section class="about-section">
+        <h2>EV Resources</h2>
+        <p>Helpful guides, manuals, and resources for EV owners. Explore Tesla-specific manuals, charging tips, maintenance guides, and incentives.</p>
+
+        <!-- Tesla Manuals -->
+        <div class="guide-section">
+          <h3>Tesla Manuals</h3>
+          <div class="guide-card">
+            <img src="https://images.unsplash.com/photo-1604328698692-bf2b2c4e4e2d" alt="Tesla Model 3" />
+            <div class="guide-card-content">
+              <h4>Model 3 Manual</h4>
+              <p>Read the official Tesla Model 3 manual for detailed information on operation, safety, and features.</p>
+              <a href="https://www.tesla.com/ownersmanual/model3/en_us/" target="_blank">View Manual</a>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <img src="https://images.unsplash.com/photo-1620812094681-b99f2c22fcf1" alt="Tesla Model Y" />
+            <div class="guide-card-content">
+              <h4>Model Y Manual</h4>
+              <p>Explore everything you need to know about your Tesla Model Y, from charging to advanced features.</p>
+              <a href="https://www.tesla.com/ownersmanual/modely/en_us/" target="_blank">View Manual</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charging Resources -->
+        <div class="guide-section">
+          <h3>Charging Resources</h3>
+          <div class="guide-card">
+            <img src="https://images.unsplash.com/photo-1616423642657-7c6b7a3e1b65" alt="EV Charging" />
+            <div class="guide-card-content">
+              <h4>PlugShare</h4>
+              <p>Find charging stations near you with PlugShare, a community-driven charging map.</p>
+              <a href="https://www.plugshare.com/" target="_blank">Visit PlugShare</a>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <img src="https://images.unsplash.com/photo-1623006555661-5e73996f8db1" alt="Tesla Supercharger" />
+            <div class="guide-card-content">
+              <h4>Tesla Supercharger Map</h4>
+              <p>Locate Tesla Superchargers worldwide and plan your long-distance EV trips with ease.</p>
+              <a href="https://www.tesla.com/findus?v=2&bounds=90,-180,-90,180&filters=supercharger" target="_blank">View Superchargers</a>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <img src="https://images.unsplash.com/photo-1589634734325-4ef72707a07f" alt="Tesla Charging Help" />
+            <div class="guide-card-content">
+              <h4>Tesla Charging Help</h4>
+              <p>Official Tesla charging help center: learn about home charging, adapters, and charging etiquette.</p>
+              <a href="https://www.tesla.com/help-me-charge" target="_blank">Visit Tesla Charging Help</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Maintenance -->
+        <div class="guide-section">
+          <h3>Tesla Maintenance</h3>
+          <div class="guide-card">
+            <img src="https://images.unsplash.com/photo-1597764691197-937b5d1e4c74" alt="Tesla Service" />
+            <div class="guide-card-content">
+              <h4>Vehicle Maintenance</h4>
+              <p>Review Tesla’s official vehicle maintenance guide for service recommendations and care tips.</p>
+              <a href="https://www.tesla.com/support/vehicle-maintenance" target="_blank">Read Maintenance Guide</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- EV Incentives -->
+        <div class="guide-section">
+          <h3>EV Incentives</h3>
+          <div class="guide-card">
+            <img src="https://images.unsplash.com/photo-1602524206215-1ec54e2c5c71" alt="EV Incentives" />
+            <div class="guide-card-content">
+              <h4>US Federal EV Tax Credit</h4>
+              <p>Check if your EV qualifies for federal and state incentives and learn how to claim benefits.</p>
+              <a href="https://www.fueleconomy.gov/feg/taxevb.shtml" target="_blank">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <p>© 2025 Simplify EV News | Powered by GNews API</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

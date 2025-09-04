@@ -1,10 +1,36 @@
 // Your GNews API Key (Replace with your actual GNews API key)
 const API_KEY = '0345e3b7fa12b27f6a7b5290c23bd202';
-let currentQuery = 'technology';
+
+// Default query set to Tesla for landing page
+let currentQuery = 'Tesla';
+
+// Map friendly category names to optimized GNews queries
+const categoryQueries = {
+  "Tesla Model 3": "Tesla Model 3",
+  "Tesla Model Y": "Tesla Model Y",
+  "Tesla Model S": "Tesla Model S",
+  "Tesla Model X": "Tesla Model X",
+  "Cybertruck": "Tesla Cybertruck",
+  "Tesla Autopilot": "Tesla Autopilot",
+  "Tesla FSD": "Tesla Full Self Driving",
+  "Rivian": "Rivian electric truck",
+  "Lucid Motors": "Lucid Air EV",
+  "BYD EV": "BYD electric vehicle",
+  "Volkswagen EV": "Volkswagen ID.4 OR VW EV",
+  "Ford EV": "Ford Mustang Mach-E OR F-150 Lightning",
+  "Tesla Supercharger": "Tesla Supercharger network",
+  "EV Charging Stations": "electric vehicle charging stations",
+  "Battery Technology": "EV battery technology",
+  "Solid State Batteries": "solid state battery EV",
+  "EV incentives": "EV tax credit OR electric vehicle incentives",
+  "EV Market": "global EV market",
+  "Sustainability": "sustainable transportation EV",
+  "EV Infrastructure": "EV infrastructure OR charging grid",
+};
 
 // Function to update the current category and fetch news
 function updateCategory(query) {
-  currentQuery = query;
+  currentQuery = categoryQueries[query] || query;
   fetchNews();
 }
 
@@ -23,7 +49,7 @@ async function fetchNews() {
     }
 
     const data = await response.json();
-    console.log(data); // For debugging
+    console.log("Fetched data:", data); // Debugging
 
     newsContainer.innerHTML = '';
     if (data && data.articles && data.articles.length > 0) {
@@ -37,7 +63,7 @@ async function fetchNews() {
         imageLink.target = '_blank';
         imageLink.className = 'image-link';
         const img = document.createElement('img');
-        img.src = article.image || 'https://via.placeholder.com/300';
+        img.src = article.image || 'https://via.placeholder.com/300?text=EV+News';
         img.alt = article.title;
         imageLink.appendChild(img);
         newsCard.appendChild(imageLink);
@@ -70,7 +96,7 @@ async function fetchNews() {
         newsContainer.appendChild(newsCard);
       });
     } else {
-      newsContainer.innerHTML = '<p>No news available.</p>';
+      newsContainer.innerHTML = '<p>No news available for this category.</p>';
     }
   } catch (error) {
     console.error('Error fetching news:', error);
