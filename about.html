@@ -2,99 +2,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="About Simplify News">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="About Simplify News" />
   <title>About Us - Simplify News</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <!-- Optional font to match Tesla vibe -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
-<body>
-  <div class="container">
-    <!-- Side Navigation -->
-    <div class="sidenav" id="sidenav">
-      <div class="sidenav-header">
-        <h2>Simplify News</h2>
-        <span class="closebtn" onclick="toggleSidenav()">&times;</span>
-      </div>
-      <button class="dropbtn">News Categories</button>
-      <div class="dropdown-content">
-        <!-- Technology Category -->
-        <div class="dropdown-item">
-          <span>Technology</span>
-          <div class="dropdown-submenu">
-            <a href="#" onclick="updateCategory('networking')">Networking</a>
-            <a href="#" onclick="updateCategory('computers')">Computers</a>
-            <a href="#" onclick="updateCategory('cyber security')">Cyber Security</a>
-            <a href="#" onclick="updateCategory('virtual reality')">VR</a>
-          </div>
-        </div>
-        <!-- Gaming Category -->
-        <div class="dropdown-item">
-          <span>Gaming</span>
-          <div class="dropdown-submenu">
-            <a href="#" onclick="updateCategory('video games')">Video Games</a>
-            <a href="#" onclick="updateCategory('pc gaming')">PC Gaming</a>
-            <a href="#" onclick="updateCategory('esports')">Esports</a>
-          </div>
-        </div>
-        <!-- Motorsports Category -->
-        <div class="dropdown-item">
-          <span>Motorsports</span>
-          <div class="dropdown-submenu">
-            <a href="#" onclick="updateCategory('formula 1')">Formula 1</a>
-            <a href="#" onclick="updateCategory('indy car')">Indy Car</a>
-            <a href="#" onclick="updateCategory('imsa')">IMSA</a>
-            <a href="#" onclick="updateCategory('wec')">WEC</a>
-          </div>
-        </div>
-        <!-- Music Category -->
-        <div class="dropdown-item">
-          <span>Music</span>
-          <div class="dropdown-submenu">
-            <a href="#" onclick="updateCategory('hip hop')">Hip Hop</a>
-            <a href="#" onclick="updateCategory('electronic dance music')">EDM</a>
-            <a href="#" onclick="updateCategory('classical')">Classical</a>
-            <a href="#" onclick="updateCategory('lofi')">Lo-Fi</a>
-          </div>
-        </div>
-        <!-- Site Info Category -->
-        <div class="dropdown-item">
-          <span>Site Info</span>
-          <div class="dropdown-submenu">
-            <a href="about.html">About Us</a>
-            <a href="contact.html">Contact Us</a>
-            <a href="privacy.html">Privacy Policy</a>
-          </div>
-        </div>
-      </div>
-      <!-- Additional Controls -->
-      <div class="additional-controls">
-        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-        <button onclick="window.location.href='https://www.streamlabs.com/khaos_Demon'">Donate</button>
-      </div>
+<body class="no-sidenav">
+  <!-- Top Navbar -->
+  <nav class="navbar">
+    <div class="logo"><a href="index.html">Simplify EV News</a></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="chat.html">Ask ChatGPT</a>
+       <a href="guides.html">EV Guides</a>
+       <a href="privacy.html">Privacy Policy</a>
+          <a href="contact.html">Contact Us</a>
+      <a href="about.html" class="active">About</a>
     </div>
+  </nav>
 
-    <!-- Main Content -->
-    <div class="main-content">
-      <div class="header">
-        <button class="openbtn" onclick="toggleSidenav()">&#9776;</button>
+  <div class="container">
+    <main class="main-content">
+      <section class="about-section">
         <h2>About Us</h2>
-      </div>
-      <main>
-        <div class="about-section">
-          <br> </br>
-          <p> An idea to give people the news and nothing but!</p>
-          <br></br>
-          
-            <p>SimplifyNews is a news aggregator that grabs news articles for Gaming, Motorsports, and Tech,and more! It orgainizes them with subcategories. SimplifyNews, removing the crap out of news and so you just get what you want! </p>
-            <p> Uses GNews API to retrieve the info on basic account but please donate so I can upgrade eventually! Thanks!</p>
-        </div>
-      </main>
-      <footer>
-        <p>Powered by GNews API</p>
-      </footer>
-    </div>
+        <p>An idea to give people the news and nothing but!</p>
+        <p>
+          Simplify News was born out of a desire to cut through the noise and deliver clean,
+          focused updates. What started as a small side project grew into a dedicated space for
+          EV news, with a special spotlight on Tesla.
+        </p>
+        <p>
+          Since purchasing my Tesla Model 3, sustainability has become more than a buzzword —
+          it’s a guiding principle for my life. Driving the Model 3 brought clarity to my goals,
+          inspiring me to create a news platform that promotes innovation, renewable energy,
+          and the future of clean transportation.
+        </p>
+        <p>
+          Simplify News curates articles from trusted sources using the GNews API.
+          Whether you’re here for Tesla updates, EV industry breakthroughs, or helpful resources
+          like Tesla manuals and guides, this site is designed to keep you informed and inspired.
+        </p>
+        <p>Thank you for joining me on this journey toward a more sustainable future.</p>
+      </section>
+    </main>
   </div>
+
+  <footer>
+    <p>Powered by GNews API</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>

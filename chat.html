@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EV Chat Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Side Navigation -->
+    <div class="sidenav" id="sidenav">
+      <div class="sidenav-header">
+        <h2>Simplify News</h2>
+        <span class="closebtn" onclick="toggleSidenav()">&times;</span>
+      </div>
+      <button class="dropbtn">Pages</button>
+      <div class="dropdown-content">
+        <div class="dropdown-item">
+          <div class="dropdown-submenu">
+            <a href="index.html">EV News</a>
+            <a href="chat.html">Chat Assistant</a>
+          </div>
+        </div>
+      </div>
+      <div class="additional-controls">
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        <button onclick="window.location.href='https://www.streamlabs.com/khaos_Demon'">Donate</button>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="header">
+        <button class="openbtn" onclick="toggleSidenav()">&#9776;</button>
+        <h2>EV Assistant</h2>
+        <h3>Ask anything about Tesla, EVs, batteries, or sustainability!</h3>
+      </div>
+
+      <!-- Chat Section -->
+      <div id="chat-container" class="chat-container">
+        <div class="chat-message assistant">👋 Hi! I’m your EV assistant. What do you want to know today?</div>
+      </div>
+
+      <div class="chat-input-container">
+        <input
+          type="text"
+          id="chat-input"
+          placeholder="Type your message..."
+          onkeypress="if(event.key === 'Enter'){sendMessage();}"
+        />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+
+      <footer>
+        <p>EV Chat Assistant – Powered by your future AI backend</p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // Send message to chat container
+    function sendMessage() {
+      const input = document.getElementById("chat-input");
+      const msg = input.value.trim();
+      if (!msg) return;
+
+      // Append user message
+      appendMessage("user", msg);
+      input.value = "";
+
+      // Simulate assistant response (replace later with API call)
+      setTimeout(() => {
+        appendMessage("assistant", "⚡ That’s a great question about EVs! (Here’s where the AI response goes.)");
+      }, 1000);
+    }
+
+    // Append message
+    function appendMessage(sender, text) {
+      const container = document.getElementById("chat-container");
+      const msgDiv = document.createElement("div");
+      msgDiv.className = `chat-message ${sender}`;
+      msgDiv.textContent = text;
+      container.appendChild(msgDiv);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    // Dark mode + sidenav reuse
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+    function toggleSidenav() {
+      document.getElementById("sidenav").classList.toggle("open");
+    }
+  </script>
+</body>
+</html>
