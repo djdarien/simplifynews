@@ -1,5 +1,5 @@
 // Your GNews API Key (Replace with your actual GNews API key)
-const API_KEY = '0345e3b7fa12b27f6a7b5290c23bd202';
+const API_KEY = '6ade3b9c0d90979df4260ca7ddda2d61';
 
 // Default query set to Tesla for landing page
 let currentQuery = 'Tesla';
