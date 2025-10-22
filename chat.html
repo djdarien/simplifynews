@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EV Chat Assistant</title>
+  <title>EV Chat Assistant - Simplify EV News</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -14,15 +14,21 @@
         <h2>Simplify News</h2>
         <span class="closebtn" onclick="toggleSidenav()">&times;</span>
       </div>
+
       <button class="dropbtn">Pages</button>
       <div class="dropdown-content">
         <div class="dropdown-item">
           <div class="dropdown-submenu">
             <a href="index.html">EV News</a>
-            <a href="chat.html">Chat Assistant</a>
+            <a href="guides.html">EV Guides</a>
+            <a href="chat.html" class="active">Chat Assistant</a>
+            <a href="about.html">About</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="contact.html">Contact Us</a>
           </div>
         </div>
       </div>
+
       <div class="additional-controls">
         <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
         <button onclick="window.location.href='https://www.streamlabs.com/khaos_Demon'">Donate</button>
@@ -33,59 +39,33 @@
     <div class="main-content">
       <div class="header">
         <button class="openbtn" onclick="toggleSidenav()">&#9776;</button>
-        <h2>EV Assistant</h2>
-        <h3>Ask anything about Tesla, EVs, batteries, or sustainability!</h3>
+        <h2>EV Chat Assistant</h2>
+        <h3>Get instant answers and insights about Tesla, EVs, batteries, and sustainability.</h3>
       </div>
 
-      <!-- Chat Section -->
-      <div id="chat-container" class="chat-container">
-        <div class="chat-message assistant">👋 Hi! I’m your EV assistant. What do you want to know today?</div>
-      </div>
-
-      <div class="chat-input-container">
-        <input
-          type="text"
-          id="chat-input"
-          placeholder="Type your message..."
-          onkeypress="if(event.key === 'Enter'){sendMessage();}"
-        />
-        <button onclick="sendMessage()">Send</button>
-      </div>
+      <!-- Chat Launch Section -->
+      <main class="chat-launch">
+        <div class="chat-card">
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Tesla_Model_S_02_2013.jpg/640px-Tesla_Model_S_02_2013.jpg" 
+            alt="Tesla Model S" 
+            class="chat-image"
+          >
+          <h2>Talk to the EV Expert</h2>
+          <p>Click below to start chatting with our AI-powered assistant — your personal guide to all things electric vehicles.</p>
+          <button class="chat-button" onclick="window.open('https://ev-expert-chat-701502515049.us-west1.run.app/', '_blank')">
+            🚗 Open Chat
+          </button>
+        </div>
+      </main>
 
       <footer>
-        <p>EV Chat Assistant – Powered by your future AI backend</p>
+        <p>EV Chat Assistant – Powered by Simplify EV News</p>
       </footer>
     </div>
   </div>
 
   <script>
-    // Send message to chat container
-    function sendMessage() {
-      const input = document.getElementById("chat-input");
-      const msg = input.value.trim();
-      if (!msg) return;
-
-      // Append user message
-      appendMessage("user", msg);
-      input.value = "";
-
-      // Simulate assistant response (replace later with API call)
-      setTimeout(() => {
-        appendMessage("assistant", "⚡ That’s a great question about EVs! (Here’s where the AI response goes.)");
-      }, 1000);
-    }
-
-    // Append message
-    function appendMessage(sender, text) {
-      const container = document.getElementById("chat-container");
-      const msgDiv = document.createElement("div");
-      msgDiv.className = `chat-message ${sender}`;
-      msgDiv.textContent = text;
-      container.appendChild(msgDiv);
-      container.scrollTop = container.scrollHeight;
-    }
-
-    // Dark mode + sidenav reuse
     function toggleDarkMode() {
       document.body.classList.toggle("dark-mode");
     }
@@ -93,5 +73,45 @@
       document.getElementById("sidenav").classList.toggle("open");
     }
   </script>
+
+  <style>
+    /* Optional: you can move these into style.css later */
+    .chat-launch {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 200px);
+      text-align: center;
+    }
+    .chat-card {
+      max-width: 600px;
+      background: var(--card-bg, #f8f8f8);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .chat-card:hover {
+      transform: translateY(-5px);
+    }
+    .chat-image {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+    .chat-button {
+      background-color: #cc0000;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .chat-button:hover {
+      background-color: #a00000;
+    }
+  </style>
 </body>
 </html>
