@@ -19,29 +19,30 @@
         <span class="closebtn" onclick="toggleSidenav()">&times;</span>
       </div>
 
-<!-- EV Guides -->
-<button class="dropbtn">
-  <a href="guides.html">EV Guides</a>
-</button>
+      <!-- EV Guides -->
+      <button class="dropbtn">
+        <a href="guides.html">EV Guides</a>
+      </button>
 
-<!-- EV Categories -->
-<button class="dropbtn">EV Categories</button>
-<div class="dropdown-content">
-  <!-- Tesla Category -->
-  <div class="dropdown-item">
-    <span class="dropdown-title">Tesla</span>
-    <div class="dropdown-submenu">
-      <a href="#" onclick="updateCategory('Tesla Model 3')">Model 3</a>
-      <a href="#" onclick="updateCategory('Tesla Model Y')">Model Y</a>
-      <a href="#" onclick="updateCategory('Tesla Model S')">Model S</a>
-      <a href="#" onclick="updateCategory('Tesla Model X')">Model X</a>
-      <a href="#" onclick="updateCategory('Cybertruck')">Cybertruck</a>
-      <a href="#" onclick="updateCategory('Tesla Autopilot')">Autopilot</a>
-      <a href="#" onclick="updateCategory('Tesla FSD')">Full Self-Driving</a>
-    </div>
-  </div>
+      <!-- EV Categories -->
+      <button class="dropbtn">EV Categories</button>
+      <div class="dropdown-content">
 
-        <!-- Other EV Makers -->
+        <!-- Tesla -->
+        <div class="dropdown-item">
+          <span class="dropdown-title">Tesla</span>
+          <div class="dropdown-submenu">
+            <a href="#" onclick="updateCategory('Tesla Model 3')">Model 3</a>
+            <a href="#" onclick="updateCategory('Tesla Model Y')">Model Y</a>
+            <a href="#" onclick="updateCategory('Tesla Model S')">Model S</a>
+            <a href="#" onclick="updateCategory('Tesla Model X')">Model X</a>
+            <a href="#" onclick="updateCategory('Cybertruck')">Cybertruck</a>
+            <a href="#" onclick="updateCategory('Tesla Autopilot')">Autopilot</a>
+            <a href="#" onclick="updateCategory('Tesla FSD')">Full Self-Driving</a>
+          </div>
+        </div>
+
+        <!-- Other EVs -->
         <div class="dropdown-item">
           <span>Other EVs</span>
           <div class="dropdown-submenu">
@@ -52,6 +53,7 @@
             <a href="#" onclick="updateCategory('Ford EV')">Ford (Mach-E, Lightning)</a>
           </div>
         </div>
+
         <!-- Charging & Batteries -->
         <div class="dropdown-item">
           <span>Charging</span>
@@ -62,7 +64,8 @@
             <a href="#" onclick="updateCategory('Solid State Batteries')">Solid State</a>
           </div>
         </div>
-        <!-- Policy & Industry -->
+
+        <!-- Industry -->
         <div class="dropdown-item">
           <span>EV Industry</span>
           <div class="dropdown-submenu">
@@ -72,6 +75,7 @@
             <a href="#" onclick="updateCategory('EV Infrastructure')">Infrastructure</a>
           </div>
         </div>
+
         <!-- Site Info -->
         <div class="dropdown-item">
           <span>Site Info</span>
@@ -83,7 +87,7 @@
         </div>
       </div>
 
-      <!-- Additional Controls -->
+      <!-- Extra -->
       <div class="additional-controls">
         <button onclick="window.location.href='https://www.streamlabs.com/khaos_Demon'">Donate</button>
       </div>
@@ -91,17 +95,16 @@
 
     <!-- Main Content -->
     <div class="main-content">
-      <!-- Hero / Header -->
+      <!-- Header -->
       <header class="header hero">
         <button class="openbtn" onclick="toggleSidenav()">&#9776;</button>
         <h1>Simplify EV News</h1>
         <h3>Your daily hub for the latest Tesla and electric vehicle news, plus guides and more!</h3>
       </header>
 
-      <!-- News Headlines -->
+      <!-- News Grid -->
       <main>
         <h2>EV Headlines</h2>
-
         <div id="news-container" class="grid"></div>
       </main>
 
@@ -120,7 +123,7 @@
 
       <!-- Footer -->
       <footer>
-        <p>Powered by GNews API • Focused on Tesla & EV News</p>
+        <p>Powered by NewsData.io • Focused on Tesla & EV News</p>
       </footer>
     </div>
   </div>

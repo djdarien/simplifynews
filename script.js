@@ -1,10 +1,10 @@
-// Your GNews API Key (Replace with your actual GNews API key)
-const API_KEY = '6ade3b9c0d90979df4260ca7ddda2d61';
+// Your NewsData.io API Key
+const API_KEY = "pub_0a40bca6a31a4b92ae3f8eab6996da01"; // <-- Replace this!
 
-// Default query set to Tesla for landing page
-let currentQuery = 'Tesla';
+// Default landing page query
+let currentQuery = "Tesla";
 
-// Map friendly category names to optimized GNews queries
+// Map friendly category names to optimized NewsData search queries
 const categoryQueries = {
   "Tesla Model 3": "Tesla Model 3",
   "Tesla Model Y": "Tesla Model Y",
@@ -13,121 +13,131 @@ const categoryQueries = {
   "Cybertruck": "Tesla Cybertruck",
   "Tesla Autopilot": "Tesla Autopilot",
   "Tesla FSD": "Tesla Full Self Driving",
-  "Rivian": "Rivian electric truck",
+  "Rivian": "Rivian Electric Truck",
   "Lucid Motors": "Lucid Air EV",
-  "BYD EV": "BYD electric vehicle",
+  "BYD EV": "BYD Electric Vehicle",
   "Volkswagen EV": "Volkswagen ID.4 OR VW EV",
   "Ford EV": "Ford Mustang Mach-E OR F-150 Lightning",
-  "Tesla Supercharger": "Tesla Supercharger network",
-  "EV Charging Stations": "electric vehicle charging stations",
-  "Battery Technology": "EV battery technology",
-  "Solid State Batteries": "solid state battery EV",
-  "EV incentives": "EV tax credit OR electric vehicle incentives",
-  "EV Market": "global EV market",
-  "Sustainability": "sustainable transportation EV",
-  "EV Infrastructure": "EV infrastructure OR charging grid",
+  "Tesla Supercharger": "Tesla Supercharger Network",
+  "EV Charging Stations": "EV Charging Stations",
+  "Battery Technology": "EV Battery Technology",
+  "Solid State Batteries": "Solid State Battery",
+  "EV incentives": "EV Tax Credit OR Electric Vehicle Incentives",
+  "EV Market": "Global EV Market",
+  "Sustainability": "Sustainable Transportation EV",
+  "EV Infrastructure": "EV Infrastructure OR Charging Grid",
 };
 
-// Function to update the current category and fetch news
+// Update category → fetch replacement query
 function updateCategory(query) {
   currentQuery = categoryQueries[query] || query;
   fetchNews();
 }
 
-// Function to fetch news articles from GNews API
+// Fetch news from NewsData.io
 async function fetchNews() {
-  const newsContainer = document.getElementById('news-container');
-  newsContainer.innerHTML = '<p>Loading...</p>';
+  const newsContainer = document.getElementById("news-container");
+  newsContainer.innerHTML = "<p>Loading latest EV news...</p>";
+
+  const endpoint = `https://newsdata.io/api/1/news?apikey=${API_KEY}&q=${encodeURIComponent(
+    currentQuery
+  )}&language=en&country=us&image=1`;
 
   try {
-    const response = await fetch(
-      `https://gnews.io/api/v4/search?q=${encodeURIComponent(currentQuery)}&token=${API_KEY}&lang=en&max=20`
-    );
+    const response = await fetch(endpoint);
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      throw new Error(`Fetch failed: ${response.status}`);
     }
 
     const data = await response.json();
-    console.log("Fetched data:", data); // Debugging
+    console.log("NewsData.io result:", data);
 
-    newsContainer.innerHTML = '';
-    if (data && data.articles && data.articles.length > 0) {
-      data.articles.forEach((article) => {
-        const newsCard = document.createElement('div');
-        newsCard.className = 'news-card';
+    newsContainer.innerHTML = "";
 
-        // Article Image with clickable link
-        const imageLink = document.createElement('a');
-        imageLink.href = article.url || '#';
-        imageLink.target = '_blank';
-        imageLink.className = 'image-link';
-        const img = document.createElement('img');
-        img.src = article.image || 'https://via.placeholder.com/300?text=EV+News';
-        img.alt = article.title;
-        imageLink.appendChild(img);
-        newsCard.appendChild(imageLink);
-
-        // Article Title
-        const title = document.createElement('h2');
-        title.textContent = article.title;
-        newsCard.appendChild(title);
-
-        // Article Description
-        const description = document.createElement('p');
-        description.textContent = article.description || 'No description available.';
-        newsCard.appendChild(description);
-
-        // Read More Link
-        const readMore = document.createElement('a');
-        readMore.href = article.url || '#';
-        readMore.target = '_blank';
-        readMore.className = 'read-more';
-        readMore.textContent = 'Read More';
-        newsCard.appendChild(readMore);
-
-        // Share Button
-        const shareBtn = document.createElement('button');
-        shareBtn.textContent = 'Share';
-        shareBtn.onclick = () => shareArticle(article.title, article.url);
-        newsCard.appendChild(shareBtn);
-
-        // Append the news card to the container
-        newsContainer.appendChild(newsCard);
-      });
-    } else {
-      newsContainer.innerHTML = '<p>No news available for this category.</p>';
+    if (!data.results || data.results.length === 0) {
+      newsContainer.innerHTML = "<p>No articles found for this category.</p>";
+      return;
     }
-  } catch (error) {
-    console.error('Error fetching news:', error);
-    newsContainer.innerHTML = '<p>Error fetching news. Please try again later.</p>';
+
+    data.results.forEach((article) => {
+      const card = document.createElement("div");
+      card.className = "news-card";
+
+      // Fallback image if missing
+      const imgSrc =
+        article.image_url ||
+        "https://via.placeholder.com/300x180.png?text=EV+News";
+
+      // Clickable image
+      const imgLink = document.createElement("a");
+      imgLink.href = article.link || "#";
+      imgLink.target = "_blank";
+
+      const img = document.createElement("img");
+      img.src = imgSrc;
+      img.alt = article.title;
+
+      imgLink.appendChild(img);
+      card.appendChild(imgLink);
+
+      // Title
+      const title = document.createElement("h2");
+      title.textContent = article.title || "Untitled Article";
+      card.appendChild(title);
+
+      // Description text
+      const desc = document.createElement("p");
+      desc.textContent =
+        article.description || "No description available for this article.";
+      card.appendChild(desc);
+
+      // Read More link
+      const readMore = document.createElement("a");
+      readMore.href = article.link || "#";
+      readMore.target = "_blank";
+      readMore.className = "read-more";
+      readMore.textContent = "Read More";
+      card.appendChild(readMore);
+
+      // Share Button
+      const shareBtn = document.createElement("button");
+      shareBtn.textContent = "Share";
+      shareBtn.onclick = () =>
+        shareArticle(article.title, article.link || "#");
+      card.appendChild(shareBtn);
+
+      newsContainer.appendChild(card);
+    });
+  } catch (err) {
+    console.error("Error fetching NewsData articles:", err);
+    newsContainer.innerHTML =
+      "<p>Error loading news. Please try again later.</p>";
   }
 }
 
-// Function to share an article using the Web Share API
+// Native share API
 function shareArticle(title, url) {
   if (navigator.share) {
     navigator
       .share({
-        title: title,
-        url: url,
+        title,
+        url,
       })
-      .catch((err) => console.error('Error sharing:', err));
+      .catch((err) => console.error("Share failed:", err));
   } else {
-    alert('Sharing not supported on this browser.');
+    alert("Sharing not supported on this browser.");
   }
 }
 
-// Function to toggle dark mode
+// UI Toggles
 function toggleDarkMode() {
-  document.body.classList.toggle('dark-mode');
+  document.body.classList.toggle("dark-mode");
 }
 
-// Function to toggle side navigation
 function toggleSidenav() {
-  const sidenav = document.getElementById('sidenav');
-  sidenav.classList.toggle('open');
+  document.getElementById("sidenav").classList.toggle("open");
 }
 
-// Initialize by fetching the default category news
+// Load on startup
 window.onload = fetchNews;
